@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+import lamps from "../../data/lamps.json";
 
 const initialState = {
   length: 0,
   width: 0,
   height: 0,
   illuminance: 0,
-  select1: 30,
-  select2: 30,
-  select3: 30,
+  select: 0,
+  lampName: null,
+  lampData: null,
+  lampModel: { id: null },
+  isModal: false,
 };
 
 export const optionsSlice = createSlice({
@@ -26,14 +29,21 @@ export const optionsSlice = createSlice({
     changeIlluminance: (state, action) => {
       state.illuminance = action.payload;
     },
-    changeSelect1: (state, action) => {
-      state.select1 = action.payload;
+    changeSelect: (state, action) => {
+      state.select = action.payload;
     },
-    changeSelect2: (state, action) => {
-      state.select2 = action.payload;
+    changeLampName: (state, action) => {
+      state.lampName = action.payload;
+      state.lampData = lamps[action.payload];
     },
-    changeSelect3: (state, action) => {
-      state.select3 = action.payload;
+    changeLampModel: (state, action) => {
+      state.lampModel = state.lampData[action.payload - 1];
+    },
+    openModal: (state) => {
+      state.isModal = true;
+    },
+    closeModal: (state) => {
+      state.isModal = false;
     },
   },
 });
@@ -43,9 +53,11 @@ export const {
   changeWidth,
   changeHeight,
   changeIlluminance,
-  changeSelect1,
-  changeSelect2,
-  changeSelect3,
+  changeSelect,
+  changeLampName,
+  changeLampModel,
+  openModal,
+  closeModal,
 } = optionsSlice.actions;
 
 export default optionsSlice.reducer;

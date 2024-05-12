@@ -1,0 +1,141 @@
+.calc-container {
+  height: 100vh;
+  padding: 10px 20px;
+  overflow: hidden;
+}
+
+.calc-link {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  font-size: 20px;
+  transition: all ease 0.5s;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  &:hover {
+    color: dodgerblue;
+    transform: scale(1.1);
+  }
+}
+
+.logoImg {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  width: 200px;
+  height: 50px;
+}
+
+.calc-title {
+  font-size: 35px;
+  margin: 25px 0;
+}
+
+.calc-subtitle {
+  font-size: 25px;
+}
+
+.calc-result {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 20px;
+}
+
+.room-lamp {
+  width: 100%;
+  height: 70%;
+  border: 1px solid white;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all ease 0.5s;
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.result-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  width: 100%;
+  span {
+    font-size: 20px;
+  }
+}
+
+.result-img {
+  width: 100%;
+  position: relative;
+}
+
+.room {
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 100px;
+}
+
+.room-length {
+  position: absolute;
+  top: 450px;
+  left: 750px;
+  font-size: 30px;
+  color: green;
+}
+
+.room-width {
+  position: absolute;
+  top: 410px;
+  left: 440px;
+  font-size: 30px;
+  color: green;
+}
+
+.room-height {
+  position: absolute;
+  top: 315px;
+  left: 590px;
+  font-size: 30px;
+  color: green;
+}
+
+.room-square {
+  position: absolute;
+  bottom: 30px;
+  left: 400px;
+  font-size: 18px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  span {
+    margin-top: 5px;
+    font-size: 40px;
+    font-weight: 700;
+  }
+}
+
+.room-illuminance {
+  position: absolute;
+  top: 50px;
+  left: 370px;
+  font-size: 18px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  span {
+    margin-top: 10px;
+    font-size: 40px;
+    font-weight: 700;
+  }
+}

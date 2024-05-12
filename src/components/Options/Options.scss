@@ -3,6 +3,7 @@
   min-height: 100vh;
   flex-direction: column;
   padding: 0 20px;
+  overflow: hidden;
 }
 
 .options-title {
@@ -65,4 +66,46 @@
 
 .lamp {
   grid-column: span 2;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.lamp-select {
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+  align-items: center;
+  select {
+    margin-top: 10px;
+  }
+}
+
+.lampData {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+  height: 70%;
+}
+
+.optionsBtn {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  transition: all ease 0.5s;
+  cursor: pointer;
+  &:hover {
+    background-color: dodgerblue;
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
 }

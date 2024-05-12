@@ -52,16 +52,15 @@
   font-size: 30px;
   font-weight: 700;
   color: #282c34;
-  border: 1px solid white;
   border-radius: 10px;
   cursor: pointer;
   transition: transform ease 0.5s;
   &:hover {
     transform: scale(1.1);
+    background-color: dodgerblue;
+    border: none;
   }
   &:active {
     transform: scale(1);
-    background-color: rgb(194, 186, 186);
-    color: green;
   }
 }

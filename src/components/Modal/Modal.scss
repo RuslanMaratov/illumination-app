@@ -1,0 +1,68 @@
+.modal-title {
+  font-size: 25px;
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.back-btn {
+  position: absolute;
+  background: none;
+  top: 20px;
+  left: 20px;
+  font-size: 20px;
+  transition: all ease 0.5s;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+    color: dodgerblue;
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.desc-wrapper {
+  margin: 30px 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.modal-img {
+  border-radius: 20px;
+  width: 300px;
+  height: 300px;
+}
+
+.modal-desc {
+  text-align: start;
+  p + p {
+    margin-top: 5px;
+  }
+  span {
+    font-size: 18px;
+    color: dodgerblue;
+  }
+}
+
+.modal-subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.lamp-desc {
+  text-indent: 40px;
+  text-align: justify;
+}
