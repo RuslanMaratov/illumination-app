@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {
   findEta1,
   findEta2,
@@ -16,61 +16,104 @@ const initialState = {
   F: 0,
   n: 0,
   totalPrice: 0,
+  loading: null,
 };
 
 export const calcSlice = createSlice({
   name: "calc",
   initialState,
   reducers: {
-    calculate: (state, action) => {
-      const data = action.payload;
-      state.S = data.length * data.width;
-      const height = data.height - (0.2 + 0.8);
-      const index = state.S / (height * (data.length + data.width));
-
-      switch (data.select) {
-        case "70% 50% 30%":
-          state.eta = findEta1(index);
-          break;
-
-        case "70% 50% 10%":
-          state.eta = findEta2(index);
-          break;
-
-        case "70% 30% 30%":
-          state.eta = findEta3(index);
-          break;
-
-        case "70% 30% 10%":
-          state.eta = findEta4(index);
-          break;
-
-        case "50% 50% 10%":
-          state.eta = findEta5(index);
-          break;
-
-        case "50% 30% 10%":
-          state.eta = findEta6(index);
-          break;
-
-        case "30% 10% 10%":
-          state.eta = findEta7(index);
-          break;
-
-        default:
-          alert("Ошибка. Введены неправильные данные");
-          break;
-      }
-
-      const F = (data.illuminance * state.S) / state.eta;
-      state.n = Math.round(F / data.lampModel.lumen);
-      state.F = Math.round(state.n * data.lampModel.lumen);
-      state.E = Math.round((state.eta * state.F) / state.S);
-      state.totalPrice = Math.round(state.n * data.lampModel.price);
+    completed: (state, action) => {
+      const values = action.payload;
+      state.eta = values[0];
+      state.S = values[1];
+      state.E = values[2];
+      state.F = values[3];
+      state.n = values[4];
+      state.totalPrice = values[5];
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(calculate.pending, (state) => {
+        state.loading = "loading";
+      })
+      .addCase(calculate.fulfilled, (state, action) => {
+        state.loading = "completed";
+        // state.entities.push(action.payload);
+      })
+      .addCase(calculate.rejected, (state, action) => {
+        state.loading = "error";
+        // state.error = action.payload;
+      });
   },
 });
 
-export const { calculate } = calcSlice.actions;
+export const calculate = createAsyncThunk(
+  "calc/calculate",
+  async (optionsState) => {
+    return new Promise((resolve, reject) => {
+      try {
+        const data = optionsState;
+        let S = data.length * data.width;
+        let eta;
+        const height = data.height - (0.2 + 0.8);
+        const index = S / (height * (data.length + data.width));
+
+        switch (data.select) {
+          case "70% 50% 30%":
+            eta = findEta1(index);
+            break;
+
+          case "70% 50% 10%":
+            eta = findEta2(index);
+            break;
+
+          case "70% 30% 30%":
+            eta = findEta3(index);
+            break;
+
+          case "70% 30% 10%":
+            eta = findEta4(index);
+            break;
+
+          case "50% 50% 10%":
+            eta = findEta5(index);
+            break;
+
+          case "50% 30% 10%":
+            eta = findEta6(index);
+            break;
+
+          case "30% 10% 10%":
+            eta = findEta7(index);
+            break;
+
+          default:
+            alert("Ошибка. Введены неправильные данные");
+            break;
+        }
+
+        const Fmust = (data.illuminance * S) / eta;
+        const n = Math.round(Fmust / data.lampModel.lumen);
+        const F = Math.round(n * data.lampModel.lumen);
+        const E = Math.round((eta * F) / S);
+        const totalPrice = Math.round(n * data.lampModel.price);
+        const calcValues = [eta, S, E, F, n, totalPrice];
+        if (calcValues.includes(NaN)) {
+          throw new Error(
+            "Вы ввели не соответствующие данные! Расчет невозможен."
+          );
+        } else {
+          resolve(calcValues);
+        }
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+);
+
+export const { completed } = calcSlice.actions;
 
 export default calcSlice.reducer;

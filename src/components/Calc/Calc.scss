@@ -9,15 +9,18 @@
   top: 30px;
   left: 20px;
   font-size: 20px;
-  transition: all ease 0.5s;
+  transition: transform ease 0.5s;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
   &:hover {
-    color: dodgerblue;
     transform: scale(1.1);
+  }
+  &:active {
+    color: dodgerblue;
+    transform: scale(1);
   }
 }
 
@@ -60,14 +63,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
 }
 
 .text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 30%;
   width: 100%;
   span {

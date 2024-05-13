@@ -35,6 +35,7 @@ export const optionsSlice = createSlice({
     changeLampName: (state, action) => {
       state.lampName = action.payload;
       state.lampData = lamps[action.payload];
+      state.lampModel.id = null;
     },
     changeLampModel: (state, action) => {
       state.lampModel = state.lampData[action.payload - 1];

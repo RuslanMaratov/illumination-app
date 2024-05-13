@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import room from "../../assets/room.jpg";
 import { Link } from "react-router-dom";
@@ -20,6 +20,30 @@ const CalcElem = () => {
   const lamp = useSelector((state) => state.options.lampModel.img);
   const isModal = useSelector((state) => state.options.isModal);
 
+  const [loadImg, setLoadImg] = useState({ img1: false, img2: false });
+
+  const img1 = useRef(null);
+  const img2 = useRef(null);
+
+  useEffect(() => {
+    const handleLoadImg = (imgKey) => {
+      setLoadImg((prevState) => ({ ...prevState, [imgKey]: true }));
+    };
+    if (img1.current !== null && img2.current !== null) {
+      img1.current.onload = () => handleLoadImg("img1");
+      img2.current.onload = () => handleLoadImg("img2");
+    }
+    // Очистка функции
+    // return () => {
+    //   img1.onLoad = null;
+    //   img2.onLoad = null;
+    // };
+    console.log(img1);
+  }, [img1, img2]);
+
+  const imgIsLoaded = loadImg.img1 && loadImg.img2;
+  console.log(imgIsLoaded);
+
   return isModal ? (
     <Modal />
   ) : (
@@ -30,7 +54,7 @@ const CalcElem = () => {
           width="20"
           height="20"
           fill="currentColor"
-          class="bi bi-arrow-left-circle"
+          className="bi bi-arrow-left-circle"
           viewBox="0 0 16 16"
         >
           <path
@@ -44,7 +68,10 @@ const CalcElem = () => {
       <h1 className="calc-title">Отчет расчета освещенности</h1>
       <div className="calc-result">
         <div className="result-desc">
-          <div className="text">
+          <div
+            className="text"
+            style={{ display: imgIsLoaded ? "block" : "none" }}
+          >
             <p>
               Освещенность помещения: <span>{E} Лк</span>
             </p>
@@ -59,25 +86,54 @@ const CalcElem = () => {
             </p>
           </div>
           <img
+            style={{ display: imgIsLoaded ? "block" : "none" }}
             title="Подробнее о светильнике"
             onClick={() => dispatch(openModal())}
             className="room-lamp"
             src={lamp}
             alt="lamp"
+            ref={img1}
           />
         </div>
         <div className="result-img">
-          <span className="room-illuminance">
+          <span
+            style={{ display: imgIsLoaded ? "flex" : "none" }}
+            className="room-illuminance"
+          >
             Общая освещенность:
             <span>{E} Лк</span>
           </span>
-          <img className="room" src={room} alt="room" />
-          <span className="room-length">{length}м</span>
-          <span className="room-width">{width}м</span>
-          <span className="room-height">{height}м</span>
-          <span className="room-square">
+          <img
+            style={{ display: imgIsLoaded ? "block" : "none" }}
+            className="room"
+            src={room}
+            alt="room"
+            ref={img2}
+          />
+          <span
+            style={{ display: imgIsLoaded ? "block" : "none" }}
+            className="room-length"
+          >
+            {length}м
+          </span>
+          <span
+            style={{ display: imgIsLoaded ? "block" : "none" }}
+            className="room-width"
+          >
+            {width}м
+          </span>
+          <span
+            style={{ display: imgIsLoaded ? "block" : "none" }}
+            className="room-height"
+          >
+            {height}м
+          </span>
+          <span
+            style={{ display: imgIsLoaded ? "block" : "none" }}
+            className="room-square"
+          >
             Общая площадь:
-            <span>
+            <span style={{ display: imgIsLoaded ? "block" : "none" }}>
               {S} м<sup>2</sup>
             </span>
           </span>

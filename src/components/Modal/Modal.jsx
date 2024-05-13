@@ -6,7 +6,7 @@ import linkImg from "../../assets/link.png";
 
 const Modal = () => {
   const dispatch = useDispatch();
-  const lampModel = useSelector((state) => state.options.lampModel );
+  const lampModel = useSelector((state) => state.options.lampModel);
 
   return (
     <div className="options-container">
@@ -17,7 +17,7 @@ const Modal = () => {
             width="20"
             height="20"
             fill="currentColor"
-            class="bi bi-arrow-left-circle"
+            className="bi bi-arrow-left-circle"
             viewBox="0 0 16 16"
           >
             <path

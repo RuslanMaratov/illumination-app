@@ -15,7 +15,7 @@
   top: 20px;
   left: 20px;
   font-size: 20px;
-  transition: all ease 0.5s;
+  transition: transform ease 0.5s;
   color: white;
   display: flex;
   justify-content: center;
@@ -24,10 +24,10 @@
   cursor: pointer;
   &:hover {
     transform: scale(1.1);
-    color: dodgerblue;
   }
   &:active {
-    transform: scale(0.9);
+    transform: scale(1.1);
+    color: dodgerblue;
   }
 }
 

@@ -14,7 +14,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import lamps from "../../data/lamps.json";
 import { useNavigate } from "react-router-dom";
-import { calculate } from "../../features/calc/calcSlice";
+import { calculate, completed } from "../../features/calc/calcSlice";
 import linkImg from "../../assets/link.png";
 
 let data = Object.keys(lamps);
@@ -22,17 +22,46 @@ let data = Object.keys(lamps);
 const Options = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const lampData = useSelector((state) => state.options.lampData);
-  const lampModel = useSelector((state) => state.options.lampModel);
-  const isModal = useSelector((state) => state.options.isModal);
   const optionsState = useSelector((state) => state.options);
 
-  const onClickCalc = () => {
-    navigate("/calc");
-    dispatch(calculate(optionsState));
+  const isRequiredParams = () => {
+    if (
+      optionsState.length >= 0 &&
+      optionsState.length &&
+      optionsState.width >= 0 &&
+      optionsState.width &&
+      optionsState.height >= 0 &&
+      optionsState.height &&
+      optionsState.illuminance >= 0 &&
+      optionsState.illuminance &&
+      optionsState.select &&
+      optionsState.lampName &&
+      optionsState.lampModel.id
+    ) {
+      return true;
+    } else return false;
   };
 
-  return isModal ? (
+  const onClickCalc = () => {
+    if (isRequiredParams()) {
+      dispatch(calculate(optionsState)).then((response) => {
+        if (response.type === "calc/calculate/fulfilled") {
+          // Обработка успешного завершения
+          dispatch(completed(response.payload));
+          navigate("/calc");
+        } else if (response.type === "calc/calculate/rejected") {
+          // Обработка ошибки
+          alert("Ошибка! " + response.error.message);
+        }
+      });
+    } else {
+      alert(
+        "Вы ввели некорректные данные! Необходимо заполнить все поля. Допустимо вводить только положительные числа."
+      );
+    }
+  };
+
+  return optionsState.isModal ? (
     <Modal />
   ) : (
     <div className="options-container">
@@ -72,10 +101,10 @@ const Options = () => {
             value={optionsState.illuminance || ""}
           />
           <p>Укажите коэффициенты отражения потолка/стен/пола в процентах.</p>
+          <p>белая поверхность - 70%, светлая - 50%, серая - 30%, темная 10%</p>
           <select
             onChange={(e) => dispatch(changeSelect(e.target.value))}
             className="options-select"
-            defaultValue="select1"
             value={optionsState.select || "select1"}
           >
             <option value="select1" disabled>
@@ -89,7 +118,6 @@ const Options = () => {
             <option className="option">50% 30% 10%</option>
             <option className="option">30% 10% 10%</option>
           </select>
-          <p>белая поверхность - 70%, светлая - 50%, серая - 30%, темная 10%</p>
         </div>
         <div className="lamp">
           <div className="lamp-select">
@@ -104,13 +132,14 @@ const Options = () => {
               </option>
               {data.map((elem) => {
                 return (
-                  <option value={elem} className="option">
+                  <option key={elem} value={elem} className="option">
                     {elem}
                   </option>
                 );
               })}
             </select>
-            {lampData !== null ? (
+
+            {optionsState.lampData !== null ? (
               <select
                 onChange={(e) => dispatch(changeLampModel(+e.target.value))}
                 className="options-select"
@@ -119,7 +148,7 @@ const Options = () => {
                 <option disabled value="select5">
                   Модель
                 </option>
-                {lampData.map((elem) => {
+                {optionsState.lampData.map((elem) => {
                   return (
                     <option key={elem.id} value={elem.id} className="option">
                       {`${elem.name}, ${elem.lumen}лм`}
@@ -131,14 +160,21 @@ const Options = () => {
               <></>
             )}
           </div>
-          {lampModel !== null ? (
+          {optionsState.lampModel.id !== null ? (
             <>
               <div className="lampData">
                 <div className="lampDesc">
-                  <p>Мощность светильника: {lampModel.capacity} Вт</p>
-                  <p>Световой поток светильника: {lampModel.lumen} Лм</p>
-                  <p>Степень защиты светильника: {lampModel.ip}</p>
-                  <p>Цена за 1 шт.: {lampModel.price} руб.</p>
+                  <p>
+                    Мощность светильника: {optionsState.lampModel.capacity} Вт
+                  </p>
+                  <p>
+                    Световой поток светильника: {optionsState.lampModel.lumen}{" "}
+                    Лм
+                  </p>
+                  <p>
+                    Степень защиты светильника: IP{optionsState.lampModel.ip}
+                  </p>
+                  <p>Цена за 1 шт.: {optionsState.lampModel.price} руб.</p>
                 </div>
                 <button
                   onClick={() => dispatch(openModal())}
