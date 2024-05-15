@@ -1,20 +1,31 @@
 .calc-container {
   height: 100vh;
-  padding: 10px 20px;
   overflow: hidden;
+  padding: 0 20px;
+}
+
+.calc-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 42px;
+  .calc-title {
+    font-size: 35px;
+  }
 }
 
 .calc-link {
   position: absolute;
-  top: 30px;
   left: 20px;
+  background: none;
   font-size: 20px;
   transition: transform ease 0.5s;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
   &:hover {
     transform: scale(1.1);
   }
@@ -24,36 +35,20 @@
   }
 }
 
-.logoImg {
-  position: absolute;
-  right: 30px;
-  top: 20px;
-  width: 200px;
-  height: 50px;
-}
-
-.calc-title {
-  font-size: 35px;
-  margin: 25px 0;
-}
-
-.calc-subtitle {
-  font-size: 25px;
-}
-
 .calc-result {
+  margin-top: 30px;
   display: grid;
   grid-template-columns: 30% 70%;
-  gap: 20px;
 }
 
 .room-lamp {
   width: 100%;
   height: 70%;
-  border: 1px solid white;
+  border: 3px solid white;
   border-radius: 100px;
   cursor: pointer;
   transition: all ease 0.5s;
+  user-select: none;
   &:hover {
     transform: scale(1.03);
   }
@@ -63,6 +58,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-right: 10px;
 }
 
 .text {
@@ -78,11 +74,12 @@
 .result-img {
   width: 100%;
   position: relative;
+  user-select: none;
 }
 
 .room {
   width: 100%;
-  border: 1px solid white;
+  border: 3px solid white;
   border-radius: 100px;
 }
 

@@ -13,7 +13,7 @@ import {
 } from "../../features/options/optionsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import lamps from "../../data/lamps.json";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { calculate, completed } from "../../features/calc/calcSlice";
 import linkImg from "../../assets/link.png";
 
@@ -65,11 +65,29 @@ const Options = () => {
     <Modal />
   ) : (
     <div className="options-container">
-      <h1 className="options-title">Расчет освещенности</h1>
-      <img className="logoImg" src={linkImg} alt="logo" />
-      <h2 className="options-subtitle">
-        Для расчета необходимо указать некоторые данные:
-      </h2>
+      <div className="options-header">
+        <Link className="calc-link" to="/">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            className="bi bi-arrow-left-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fillRule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+            />
+          </svg>
+          Главная
+        </Link>
+        <div className="options-title">
+          <h1>Расчет освещенности</h1>
+          <h2>Для расчета необходимо указать некоторые данные:</h2>
+        </div>
+        <img className="logoImg" src={linkImg} alt="logo" />
+      </div>
       <div className="options-questions">
         <div className="options-question">
           <p>Укажите данные помещения (длину, ширину и высоту) в метрах.</p>

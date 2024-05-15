@@ -1,27 +1,35 @@
-.modal-title {
-  font-size: 25px;
-  margin-top: 20px;
-  font-weight: 700;
-}
-
 .modal {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  height: 100vh;
+  padding: 0 20px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 42px;
+}
+
+.modal-title {
+  font-size: 35px;
 }
 
 .back-btn {
   position: absolute;
-  background: none;
-  top: 20px;
   left: 20px;
+  background: none;
   font-size: 20px;
   transition: transform ease 0.5s;
   color: white;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-  cursor: pointer;
+  gap: 10px;
   &:hover {
     transform: scale(1.1);
   }
