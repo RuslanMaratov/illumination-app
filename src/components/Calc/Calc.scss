@@ -67,6 +67,7 @@
   height: 30%;
   width: 100%;
   span {
+    color: dodgerblue;
     font-size: 20px;
   }
 }
@@ -85,32 +86,32 @@
 
 .room-length {
   position: absolute;
-  top: 450px;
-  left: 750px;
+  top: 82%;
+  left: 80%;
   font-size: 30px;
   color: green;
 }
 
 .room-width {
   position: absolute;
-  top: 410px;
-  left: 440px;
+  top: 75%;
+  left: 47%;
   font-size: 30px;
   color: green;
 }
 
 .room-height {
   position: absolute;
-  top: 315px;
-  left: 590px;
+  top: 55%;
+  left: 62%;
   font-size: 30px;
   color: green;
 }
 
 .room-square {
   position: absolute;
-  bottom: 30px;
-  left: 400px;
+  bottom: 5%;
+  left: 43%;
   font-size: 18px;
   color: black;
   display: flex;
@@ -124,8 +125,8 @@
 
 .room-illuminance {
   position: absolute;
-  top: 50px;
-  left: 370px;
+  top: 10%;
+  left: 40%;
   font-size: 18px;
   color: black;
   display: flex;
@@ -134,5 +135,129 @@
     margin-top: 10px;
     font-size: 40px;
     font-weight: 700;
+  }
+}
+
+@media only screen and (max-width: 1152px) {
+  .calc-header {
+    margin-top: 27px;
+    .calc-title {
+      font-size: 25px;
+    }
+  }
+
+  .room-lamp {
+    width: 100%;
+    height: 65%;
+    border-radius: 60px;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    height: 30%;
+    width: 100%;
+    font-size: 14px;
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .room {
+    border-radius: 60px;
+  }
+
+  .room-square {
+    left: 40%;
+    span {
+      margin-top: 0px;
+      font-size: 30px;
+    }
+  }
+
+  .room-illuminance {
+    left: 37%;
+    span {
+      font-size: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .calc-result {
+    margin-top: 50px;
+    grid-template-columns: 35% 65%;
+  }
+
+  .result-img {
+    height: fit-content;
+  }
+
+  .room {
+    border-radius: 30px;
+  }
+
+  .room-lamp {
+    width: 180px;
+    height: 180px;
+    border-radius: 30px;
+  }
+
+  .text {
+    height: 30%;
+    width: 100%;
+    font-size: 12px;
+    span {
+      font-size: 12px;
+    }
+  }
+
+  .result-desc {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .room-illuminance {
+    left: 37%;
+    font-size: 16px;
+    span {
+      margin-top: 0px;
+      font-size: 25px;
+    }
+  }
+
+  .room-square {
+    left: 40%;
+    bottom: 1%;
+    font-size: 16px;
+    span {
+      font-size: 25px;
+    }
+  }
+
+  .room-length {
+    top: 80%;
+    left: 78%;
+    font-size: 20px;
+  }
+
+  .room-width {
+    top: 72%;
+    left: 45%;
+    font-size: 20px;
+  }
+
+  .room-height {
+    top: 53%;
+    left: 60%;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 930px) {
+  .room-illuminance {
+    left: 35%;
   }
 }

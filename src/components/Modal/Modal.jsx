@@ -34,6 +34,9 @@ const Modal = () => {
         <img className="modal-img" src={lampModel.img} alt="lamp" />
         <div className="modal-desc">
           <p>
+            Компания-производитель: <span>{lampModel.company}</span>
+          </p>
+          <p>
             Мощность светильника: <span>{lampModel.capacity} Вт</span>
           </p>
           <p>
