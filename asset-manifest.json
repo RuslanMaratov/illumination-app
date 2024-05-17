@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.4ebe4a57.css",
-    "main.js": "/static/js/main.1b6fc592.js",
-    "static/media/kgeu.jpg": "/static/media/kgeu.46691c8146a24d209ed7.jpg",
-    "static/media/logo.png": "/static/media/logo.ddff95d0f02b5837861a.png",
-    "static/media/welcome.jpg": "/static/media/welcome.b33fb881a226425874fb.jpg",
-    "static/media/room.jpg": "/static/media/room.029acb17efeb6d228ef3.jpg",
-    "static/media/55years.png": "/static/media/55years.ea23731338c822592b23.png",
-    "static/media/link.png": "/static/media/link.1d13b32107d07fa330c2.png",
-    "static/media/name.png": "/static/media/name.c8c5a7c653adf1c51b66.png",
-    "index.html": "/index.html",
-    "main.4ebe4a57.css.map": "/static/css/main.4ebe4a57.css.map",
-    "main.1b6fc592.js.map": "/static/js/main.1b6fc592.js.map"
+    "main.css": "/illumination-app/static/css/main.4ebe4a57.css",
+    "main.js": "/illumination-app/static/js/main.a5799b11.js",
+    "static/media/kgeu.jpg": "/illumination-app/static/media/kgeu.46691c8146a24d209ed7.jpg",
+    "static/media/logo.png": "/illumination-app/static/media/logo.ddff95d0f02b5837861a.png",
+    "static/media/welcome.jpg": "/illumination-app/static/media/welcome.b33fb881a226425874fb.jpg",
+    "static/media/room.jpg": "/illumination-app/static/media/room.029acb17efeb6d228ef3.jpg",
+    "static/media/55years.png": "/illumination-app/static/media/55years.ea23731338c822592b23.png",
+    "static/media/link.png": "/illumination-app/static/media/link.1d13b32107d07fa330c2.png",
+    "static/media/name.png": "/illumination-app/static/media/name.c8c5a7c653adf1c51b66.png",
+    "index.html": "/illumination-app/index.html",
+    "main.4ebe4a57.css.map": "/illumination-app/static/css/main.4ebe4a57.css.map",
+    "main.a5799b11.js.map": "/illumination-app/static/js/main.a5799b11.js.map"
   },
   "entrypoints": [
     "static/css/main.4ebe4a57.css",
-    "static/js/main.1b6fc592.js"
+    "static/js/main.a5799b11.js"
   ]
 }
