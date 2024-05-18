@@ -259,6 +259,53 @@
   }
 }
 
+@media only screen and (max-width: 425px) {
+  .room-lamp {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .calc-header {
+    .calc-title {
+      font-size: 14px;
+    }
+  }
+
+  .room-lamp {
+    width: 100px;
+    height: 100px;
+  }
+
+  .text {
+    font-size: 10px;
+    span {
+      font-size: 10px;
+    }
+  }
+
+  .calc-link {
+    font-size: 10px;
+    gap: 2px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .calc-header {
+    .calc-title {
+      font-size: 12px;
+    }
+  }
+
+  .text {
+    font-size: 8px;
+    span {
+      font-size: 10px;
+    }
+  }
+}
+
 // room img
 
 @media only screen and (max-width: 1024px) {
@@ -367,5 +414,55 @@
   .room-height {
     top: 55%;
     font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .room-illuminance {
+    font-size: 12px;
+    span {
+      font-size: 18px;
+    }
+  }
+
+  .room-square {
+    font-size: 12px;
+    span {
+      font-size: 18px;
+    }
+  }
+
+  .room-length {
+    font-size: 12px;
+  }
+
+  .room-width {
+    top: 70%;
+    font-size: 12px;
+  }
+
+  .room-height {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 365px) {
+  .room-illuminance {
+    font-size: 10px;
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .room-square {
+    left: 10%;
+    font-size: 10px;
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .room-height {
+    top: 50%;
   }
 }

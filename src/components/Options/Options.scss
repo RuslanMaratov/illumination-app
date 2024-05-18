@@ -259,7 +259,7 @@
     font-size: 12px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .logoImg {
@@ -271,5 +271,37 @@
   .options-select {
     font-size: 12px;
     width: 180px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .logoImg {
+    width: 60px;
+    height: 20px;
+  }
+}
+
+@media only screen and (max-width: 365px) {
+  .logoImg {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 365px) {
+  .options-select {
+    font-size: 10px;
+    width: 140px;
+  }
+
+  .lamp-select select {
+    margin-top: 5px;
+  }
+
+  .lampDesc {
+    font-size: 10px;
+  }
+
+  .optionsBtn {
+    width: 80px;
   }
 }

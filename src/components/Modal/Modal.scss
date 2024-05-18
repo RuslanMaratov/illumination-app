@@ -179,3 +179,45 @@
     font-size: 12px;
   }
 }
+
+@media only screen and (max-width: 390px) {
+  .modal-img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .modal-desc {
+    font-size: 10px;
+    span {
+      font-size: 12px;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .modal-title {
+    font-size: 12px;
+    width: 150px;
+  }
+
+  .modal-img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .modal-desc span {
+    font-size: 10px;
+  }
+
+  .desc-wrapper {
+    margin: 5px 0;
+  }
+
+  .modal-subtitle {
+    font-size: 12px;
+  }
+
+  .lamp-desc {
+    font-size: 10px;
+  }
+}
