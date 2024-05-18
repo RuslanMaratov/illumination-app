@@ -180,10 +180,19 @@
   }
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 400px) {
   .modal-img {
     width: 130px;
     height: 130px;
+  }
+
+  .back-btn {
+    font-size: 10px;
+    gap: 2px;
+}
+
+  .desc-wrapper {
+    justify-content: space-around;
   }
 
   .modal-desc {
@@ -194,15 +203,15 @@
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 365px) {
   .modal-title {
     font-size: 12px;
     width: 150px;
   }
 
   .modal-img {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
   }
 
   .modal-desc span {
