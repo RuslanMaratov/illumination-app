@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-container">
-        <BrowserRouter>
+        <BrowserRouter basename="/illumination-app/">
           <Routes>
             <Route path="/" element={<StartPage />} />
             <Route path="/options" element={<Options />} />

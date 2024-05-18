@@ -205,3 +205,71 @@
     font-size: 12px;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .options-container {
+    padding: 0 10px;
+    overflow: auto;
+  }
+
+  .options-header {
+    margin: 10px 0;
+  }
+
+  .options-title {
+    h1 {
+      font-size: 16px;
+    }
+    h2 {
+      font-size: 12px;
+      margin-top: 0px;
+    }
+  }
+
+  .options-questions {
+    gap: 5px;
+    grid-template-rows: auto;
+  }
+
+  .options-question {
+    gap: 1px;
+    border-radius: 10px;
+    p {
+      font-size: 10px;
+    }
+    input {
+      font-size: 10px;
+    }
+  }
+
+  .optionsBtn {
+    padding: 0px;
+    font-size: 12px;
+    width: 100px;
+  }
+
+  .lamp {
+    border-radius: 10px;
+    .lamp-select {
+      font-size: 12px;
+    }
+  }
+
+  .lampDesc {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logoImg {
+    width: 80px;
+    height: 25px;
+    top: 0;
+  }
+
+  .options-select {
+    font-size: 12px;
+    width: 180px;
+  }
+}
