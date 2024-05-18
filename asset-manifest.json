@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/illumination-app/static/css/main.4ebe4a57.css",
-    "main.js": "/illumination-app/static/js/main.4853e691.js",
+    "main.css": "/illumination-app/static/css/main.45e5245e.css",
+    "main.js": "/illumination-app/static/js/main.ee22b3ff.js",
     "static/media/kgeu.jpg": "/illumination-app/static/media/kgeu.46691c8146a24d209ed7.jpg",
     "static/media/logo.png": "/illumination-app/static/media/logo.ddff95d0f02b5837861a.png",
     "static/media/welcome.jpg": "/illumination-app/static/media/welcome.b33fb881a226425874fb.jpg",
@@ -10,11 +10,11 @@
     "static/media/link.png": "/illumination-app/static/media/link.1d13b32107d07fa330c2.png",
     "static/media/name.png": "/illumination-app/static/media/name.c8c5a7c653adf1c51b66.png",
     "index.html": "/illumination-app/index.html",
-    "main.4ebe4a57.css.map": "/illumination-app/static/css/main.4ebe4a57.css.map",
-    "main.4853e691.js.map": "/illumination-app/static/js/main.4853e691.js.map"
+    "main.45e5245e.css.map": "/illumination-app/static/css/main.45e5245e.css.map",
+    "main.ee22b3ff.js.map": "/illumination-app/static/js/main.ee22b3ff.js.map"
   },
   "entrypoints": [
-    "static/css/main.4ebe4a57.css",
-    "static/js/main.4853e691.js"
+    "static/css/main.45e5245e.css",
+    "static/js/main.ee22b3ff.js"
   ]
 }
