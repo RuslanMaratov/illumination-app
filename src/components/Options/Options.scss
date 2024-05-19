@@ -64,6 +64,42 @@
   }
 }
 
+.illuminance-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.illuminanceModal {
+  position: absolute;
+  top: 30px;
+  width: 500px;
+  border: 1px solid dodgerblue;
+  padding: 10px;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  p {
+    font-size: 12px;
+  }
+  span {
+    color: blue;
+  }
+}
+
+.question-svg {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: all ease 0.5s;
+  &:hover {
+    transform: scale(1.1);
+    color: dodgerblue;
+  }
+}
+
 .options-select {
   width: 200px;
   text-align: center;
@@ -212,6 +248,11 @@
     overflow: auto;
   }
 
+  .illuminanceModal {
+    right: 0px;
+    width: 370px;
+  }
+
   .options-header {
     margin: 10px 0;
   }
@@ -279,6 +320,17 @@
     width: 60px;
     height: 20px;
   }
+
+  .question-svg {
+    margin-left: 5px;
+  }
+
+  .illuminanceModal {
+    width: 300px;
+    p {
+      font-size: 8px;
+    }
+  }
 }
 
 @media only screen and (max-width: 365px) {
@@ -303,5 +355,11 @@
 
   .optionsBtn {
     width: 80px;
+  }
+}
+
+@media only screen and (max-width: 365px) {
+  .illuminanceModal {
+    width: 280px;
   }
 }

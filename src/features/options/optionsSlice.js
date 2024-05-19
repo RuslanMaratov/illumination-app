@@ -11,6 +11,7 @@ const initialState = {
   lampData: null,
   lampModel: { id: null },
   isModal: false,
+  illuminanceModal: false,
 };
 
 export const optionsSlice = createSlice({
@@ -46,6 +47,12 @@ export const optionsSlice = createSlice({
     closeModal: (state) => {
       state.isModal = false;
     },
+    showIlluminanceModal: (state) => {
+      state.illuminanceModal = true;
+    },
+    closeIlluminanceModal: (state) => {
+      state.illuminanceModal = false;
+    },
   },
 });
 
@@ -59,6 +66,8 @@ export const {
   changeLampModel,
   openModal,
   closeModal,
+  showIlluminanceModal,
+  closeIlluminanceModal,
 } = optionsSlice.actions;
 
 export default optionsSlice.reducer;
